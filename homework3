@@ -1,0 +1,100 @@
+name = input('write your name : ')
+print("HELLO " + name)
+
+from random import choice
+
+while True:
+    print("WELCOME TO THE GAME HANGMAN!")
+
+    words = choice(['banana',
+                    'cherry',
+                    'monkey',
+                    'angle',
+                    'believe',
+                    'random',
+                    'computer',
+                    'phone',
+                    'window',
+                    'carpet',
+                    'pencil',
+                    'finger',
+                    'fresh',
+                    'keyword',
+                    'eraser',
+                    'secret',
+                    'music',
+                    'clock',
+                    'wallet',
+                    'clothes',
+                    'blood',
+                    'board',
+                    'chart',
+                    'cloud',
+                    'doctor',
+                    'summer',
+                    'winter',
+                    'paper',
+                    'benefit',
+                    'water'])
+
+    words = words.lower()
+
+
+    count_letter = len(words)
+
+    print("\nThe word have {} letters.".format(count_letter))
+
+    guesses = []
+    mistake = []
+
+    tries = count_letter + 5
+
+    while tries > 0 :
+        statu =""
+
+        for letter in words :
+            if letter in guesses:
+                statu = statu + letter
+
+            else:
+                statu = statu + " _ "
+
+        if statu == words:
+            print("You Win!")
+            break
+        print("Try to guess the word:\n",statu)
+        if tries == 1:
+             print("You have just {} chance.".format(tries))
+        else:
+              print("You have {} chances.".format(tries))
+
+        guess = input("Write a letter.\n")
+        guess = guess.lower()
+
+
+        if len(guess) >1:
+           print("Write just one letter.")
+        if guess.isdigit():
+            print("Please enter a letter.")
+        if len(guess) is 0:
+            print("You didn't enter a letter!")
+
+        if guess == words:
+            print("CONGRATULATIONS {}!\nYou are the winner.".format(name))
+            break
+
+
+        if guess in guesses or guess in mistake:
+            print("You have already say {}.Please select another letter".format(guess))
+        elif guess in words:
+            x = words.count(guess)
+            print ("True.The {0} letters have {1} times in this word.".format(guess,x))
+            guesses.append(guess)
+        else:
+            print("Try again.This word has not this letter.")
+            mistake.append(guess)
+            tries = tries - 1
+    if tries ==0:
+        print ("You failed {}!".format(name))
+        print("Your word is {}.".format(words))
+    break
