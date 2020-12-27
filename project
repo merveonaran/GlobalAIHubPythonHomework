@@ -1,0 +1,107 @@
+chances=3
+
+while True:
+    
+  
+    words = ([      "Merve Onaran",
+                    "Mehmet Onaran",
+                    "Ömer Cengiz",
+                    "Elif Yiğit"
+                    "Aysuda Ceylan",
+                    "Kutay Akalın"])
+
+    name=input("Please enter your name and surname :")
+    if name in words:
+        print("You enter correctly. ")
+        print("Welcome "+name)
+        break
+    else:
+        chances-=1
+        print("Wrong. You have {} chances".format(chances))
+        if chances==0 :
+         print("Please try again later...")
+         break
+lessons=["math","art","music","physic","social","pass","chemistry","biology"]
+number_of_lesson=0
+taken_lesson=[]
+print("You can take these lessons:math,art,music,physic,social")
+print("You can take at least 3 lessons and max 5 lessons")
+print("If you don't want to take more lesson, you can write pass")
+   
+while True:   
+
+    take=input("Enter the lessons you wanted take  ")
+   
+    if take in lessons and number_of_lesson<5:
+        number_of_lesson+=1
+        lessons.remove(take)
+        taken_lesson.append(take)
+    
+        if take =="pass":
+           if number_of_lesson>3:
+               print("You haven {} lessons.".format(number_of_lesson-1))
+               
+               
+               choseen_lesson=input("Enter the lesson which wanted to take average   ")
+
+               if not  choseen_lesson in taken_lesson:
+                 print("You do not take this lesson")
+               else:
+                    midterm=float(input("Enter your midterm  "))
+                    final=float(input("Enter your final  "))
+                    project=float(input("Enter your project  "))
+                    grades={"midterm":midterm,"final":final,"project":project}
+    
+    
+                    average=((midterm*30)/100)+((final*50)/100)+((project*20)/100)
+                    print("your average is {}".format(average))
+                             
+                    if average>90:
+                        print("AA")
+                    elif average>70:
+                        print("BB")
+                    elif average>50:
+                        print("CC")
+                    elif average>30:
+                        print("DD")
+                    else:
+                        print("You failed...")
+                  
+        
+           else:
+                print("You should at least 3 lessons")
+                break
+     
+    elif not take in lesson:
+        print("You cannot take this lesson...")
+        break
+    else:
+        print("You cannot take more than 5 lessons...")
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
