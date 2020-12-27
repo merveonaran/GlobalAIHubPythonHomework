@@ -1,0 +1,9 @@
+name=input("Name:")
+surname=input("Surname:")
+age=int(input("doğum yılı:"))
+print("Name:{}      Surname:{}        Age:{}".format(name,surname,age))
+if(2020-age<18):
+    print("You can't go out because it's too dangerous")
+else:
+    print("You can go out to the street")
+
