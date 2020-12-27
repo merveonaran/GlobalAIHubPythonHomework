@@ -1,0 +1,23 @@
+def what_is_the_type(x):
+    try:
+        x=int(x)
+    except ValueError:
+      
+        try:
+            x=float(x)
+        except ValueError:
+            pass
+    print("type of {} is {}".format(x,type(x)))
+
+
+first=input("Enter first value")
+second=input("Enter second value")
+third=input("Enter third value")
+fourth=input("Enter fourth value")
+fiveth=input("Enter fiveth value")
+
+what_is_the_type(first)
+what_is_the_type(second)
+what_is_the_type(third)
+what_is_the_type(fourth)
+what_is_the_type(fiveth)
